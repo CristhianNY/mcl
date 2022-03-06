@@ -1,0 +1,5 @@
+include ':app'
+rootProject.name = "mercadolibre"
+include ':data'
+include ':domain'
+include ':support'

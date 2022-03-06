@@ -1,0 +1,104 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-parcelize'
+}
+
+def APP_NAME = 'mercadolibre'
+android {
+    lintOptions {
+        disable 'NullSafeMutableLiveData'
+    }
+    flavorDimensions 'version'
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    buildTypes {
+        debug {
+            debuggable true
+            testCoverageEnabled true
+            minifyEnabled false
+            shrinkResources false
+        }
+        release {
+            debuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-app.pro'
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.genubank.app"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 2
+        versionName "2.1"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            def appName = APP_NAME
+
+            outputFileName = "GenuBank-${appName}-" + "${variant.versionName}.apk"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+    implementation project(":domain")
+    implementation project(":data")
+    implementation project(":support")
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.core:core-ktx:$core_version"
+    implementation "androidx.appcompat:appcompat:$app_compat_version"
+    implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
+    implementation "com.google.dagger:dagger:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+    implementation "com.google.dagger:dagger-android:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    implementation "androidx.multidex:multidex:$multidex_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+    implementation "androidx.activity:activity-ktx:$androidx_activity_version"
+    implementation "androidx.fragment:fragment-ktx:$androidx_fragment_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$core_ktx_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$android_core_ktx_version"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.google.code.gson:gson:$gson_version"
+    implementation "com.squareup.retrofit2:converter-gson:$gson_converter"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpLoggingVersion"
+    implementation "com.xwray:groupie:$groupie_version"
+    implementation "com.xwray:groupie-databinding:$groupie_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_compiler_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+    testImplementation "junit:junit:$junit_version"
+    testImplementation("org.mockito:mockito-core:$mockito_version")
+    testImplementation "android.arch.core:core-testing:$arch_core_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$core_ktx_version"
+    testImplementation "androidx.test:core:$test_core"
+    testImplementation "androidx.test.ext:truth:$test_truth"
+    testImplementation "com.google.truth:truth:$google_truth_truth"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+}

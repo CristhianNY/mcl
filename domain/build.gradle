@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        debug {
+            useProguard false
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+            versionNameSuffix "-debug"
+            signingConfig signingConfigs.debug
+
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation project(":support")
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    testImplementation "junit:junit:$junit_version"
+    testImplementation("org.mockito:mockito-core:$mockito_version")
+    testImplementation "android.arch.core:core-testing:$arch_core_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$core_ktx_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$android_core_ktx_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$core_ktx_version"
+    testImplementation "androidx.test.ext:junit:$junit_androidx_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+}
