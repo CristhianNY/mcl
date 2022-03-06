@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/mc_yellow"
+        android:paddingBottom="@dimen/spacing_108">
+
+        <ImageView
+            android:id="@+id/ivProduct"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="@dimen/spacing_10"
+            android:src="@drawable/ic_mercadolibre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_16"
+            android:layout_marginTop="@dimen/spacing_20"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_size_18"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivProduct"
+            tools:text="Celular Xiaomi" />
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_16"
+            android:layout_marginTop="@dimen/spacing_24"
+            android:text="@string/price"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_size_12"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+        <TextView
+            android:id="@+id/tvPriceValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_8"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/tvPrice"
+            app:layout_constraintTop_toTopOf="@+id/tvPrice"
+            tools:text="$5000.00" />
+
+        <TextView
+            android:id="@+id/tvQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_10"
+            android:text="@string/quantity"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/tvPrice"
+            app:layout_constraintTop_toBottomOf="@+id/tvPrice" />
+
+        <TextView
+            android:id="@+id/tvQueantityValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_8"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/tvQuantity"
+            app:layout_constraintTop_toTopOf="@+id/tvQuantity"
+            tools:text="12" />
+
+        <TextView
+            android:id="@+id/tvAcceptMercadoPago"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_40"
+            android:text="@string/accept_mercado_pago"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_size_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tvQuantity"
+            app:layout_constraintTop_toBottomOf="@+id/tvQuantity" />
+
+        <TextView
+            android:id="@+id/tvYesOrNot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_8"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_size_18"
+            app:layout_constraintStart_toEndOf="@+id/tvAcceptMercadoPago"
+            app:layout_constraintTop_toTopOf="@+id/tvAcceptMercadoPago"
+            tools:text="SI" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

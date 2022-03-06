@@ -31,4 +31,13 @@
         <item name="android:background">@drawable/text_input_edit_text_selector</item>
         <item name="errorEnabled">true</item>
     </style>
+
+    <style name="BottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/bottomSheetStyleWrapper</item>
+    </style>
+
+    <style name="bottomSheetStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
 </resources>
