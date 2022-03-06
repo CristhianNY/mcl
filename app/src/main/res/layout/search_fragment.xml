@@ -7,52 +7,72 @@
         android:layout_height="match_parent"
         android:background="@color/mc_yellow">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/ivLogo"
-            android:layout_width="@dimen/spacing_108"
-            android:layout_height="@dimen/spacing_108"
-            android:layout_marginBottom="@dimen/spacing_80"
-            android:src="@drawable/ic_mercadolibre"
-            app:layout_constraintBottom_toTopOf="@+id/til_phone_number"
-            app:layout_constraintEnd_toEndOf="@+id/til_phone_number"
-            app:layout_constraintStart_toStartOf="@+id/til_phone_number" />
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_phone_number"
-            style="@style/OutlinedTextInputLayout"
-            android:layout_width="0dp"
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="@dimen/spacing_108"
+                android:layout_height="@dimen/spacing_108"
+                android:layout_marginBottom="@dimen/spacing_80"
+                android:src="@drawable/ic_mercadolibre"
+                app:layout_constraintBottom_toTopOf="@+id/edProductName"
+                app:layout_constraintEnd_toEndOf="@+id/edProductName"
+                app:layout_constraintStart_toStartOf="@+id/edProductName" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edProductName"
+                style="@style/OutlinedTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:layout_marginEnd="@dimen/spacing_16"
+                app:errorEnabled="true"
+                app:hintEnabled="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!--suppress AndroidUnknownAttribute -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edProductNameValue"
+                    style="@style/RoundedTextInputEditTextSelector"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/find_products"
+                    android:inputType="text"
+                    android:maxLength="14"
+                    android:maxLines="1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnFindProduct"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/find_products"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/edProductName"
+                app:layout_constraintStart_toStartOf="@+id/edProductName"
+                app:layout_constraintTop_toBottomOf="@+id/edProductName" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ProgressBar
+            android:id="@+id/loader"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_16"
-            android:layout_marginEnd="@dimen/spacing_16"
-            app:errorEnabled="true"
-            app:hintEnabled="false"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/black"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <!--suppress AndroidUnknownAttribute -->
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_phone_number"
-                style="@style/RoundedTextInputEditTextSelector"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/find_products"
-                android:inputType="text"
-                android:maxLength="14"
-                android:maxLines="1" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/btnFindProduct"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/find_products"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/til_phone_number"
-            app:layout_constraintStart_toStartOf="@+id/til_phone_number"
-            app:layout_constraintTop_toBottomOf="@+id/til_phone_number" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
