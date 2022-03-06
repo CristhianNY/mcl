@@ -8,13 +8,13 @@ data class ProductEntity(
     @SerializedName("accepts_mercadopago")
     val acceptsMercadopago: Boolean?,
     @SerializedName("available_quantity")
-    val availableQuantity: Int?,
+    val availableQuantity: Double?,
     @SerializedName("currency_id")
     val currencyId: String?,
     @SerializedName("id")
     val id: String?,
     @SerializedName("price")
-    val price: Int?,
+    val price: Double?,
     @SerializedName("thumbnail")
     val thumbnail: String?,
     @SerializedName("thumbnail_id")

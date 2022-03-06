@@ -7,6 +7,6 @@ import retrofit2.http.Query
 
 interface ProductApi {
 
-    @GET("sites/MLA/")
-    suspend fun getProductsByName(@Query("search") name: String): Response<SearchResultEntity>
+    @GET("sites/MLA/search")
+    suspend fun getProductsByName(@Query("q") name: String): Response<SearchResultEntity>
 }

@@ -2,10 +2,10 @@ package com.mercadolibre.cristhianbonilla.domain.model
 
 data class ProductModel(
     val acceptsMercadopago: Boolean,
-    val availableQuantity: Int,
+    val availableQuantity: Double,
     val currencyId: String,
     val id: String,
-    val price: Int,
+    val price: Double,
     val thumbnail: String,
     val thumbnailId: String,
     val title: String,

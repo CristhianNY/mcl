@@ -2,6 +2,7 @@ package com.mercadolibre.cristhianbonilla.mercadolibre.di.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.mercadolibre.cristhianbonilla.mercadolibre.MainViewModel
 import com.mercadolibre.cristhianbonilla.mercadolibre.di.ViewModelFactory
 import com.mercadolibre.cristhianbonilla.mercadolibre.search.SearchViewModel
 import dagger.Binds
@@ -30,5 +31,8 @@ abstract class ViewModelModule {
     @ViewModelKey(SearchViewModel::class)
     internal abstract fun bindSearchViewModel(viewModel: SearchViewModel): ViewModel
 
-
+    @Binds
+    @IntoMap
+    @ViewModelKey(MainViewModel::class)
+    internal abstract fun bindMainViewModel(viewModel: MainViewModel): ViewModel
 }

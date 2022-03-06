@@ -2,6 +2,7 @@ package com.mercadolibre.cristhianbonilla.mercadolibre.di.module
 
 import android.content.Context
 import com.mercadolibre.cristhianbonilla.data.BuildConfig.BASE_URL
+import com.readystatesoftware.chuck.ChuckInterceptor
 import dagger.Module
 import dagger.Provides
 import java.util.concurrent.TimeUnit
@@ -46,7 +47,7 @@ class NetworkModule {
             val request = requestBuilder.build()
             chain.proceed(request)
         }
-
+        httpClient.addInterceptor(ChuckInterceptor(context))
 
         return httpClient.build()
     }

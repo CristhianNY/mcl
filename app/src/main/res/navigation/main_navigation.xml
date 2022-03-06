@@ -7,5 +7,13 @@
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.mercadolibre.cristhianbonilla.mercadolibre.search.SearchFragment"
-        android:label="SearchFragment" />
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_productListFragment"
+            app:destination="@id/productListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.mercadolibre.cristhianbonilla.mercadolibre.product_list.ProductListFragment"
+        android:label="ProductListFragment" />
 </navigation>

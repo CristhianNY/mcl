@@ -5,8 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.mercadolibre.cristhianbonilla.domain.model.ProductModel
+import com.mercadolibre.cristhianbonilla.mercadolibre.MainViewModel
 import com.mercadolibre.cristhianbonilla.mercadolibre.R
 import com.mercadolibre.cristhianbonilla.mercadolibre.databinding.SearchFragmentBinding
 import com.mercadolibre.cristhianbonilla.support.config.binding.fragmentBinding
@@ -20,6 +24,8 @@ class SearchFragment : DaggerFragment() {
     @Inject
     lateinit var factory: ViewModelProvider.Factory
     private val viewModel: SearchViewModel by viewModels { factory }
+
+    private val mainViewModel: MainViewModel by activityViewModels { factory }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,7 +49,7 @@ class SearchFragment : DaggerFragment() {
         handleLoader(false)
         when (state) {
             is SearchState.ProductSuccess -> {
-                Toast.makeText(requireContext(), state.product.toString(), Toast.LENGTH_LONG).show()
+                goToProductList(state.product)
             }
 
             is SearchState.GenericError -> Toast.makeText(
@@ -60,6 +66,11 @@ class SearchFragment : DaggerFragment() {
 
             is SearchState.Loading -> handleLoader(true)
         }
+    }
+
+    private fun goToProductList(productList: List<ProductModel>) {
+        mainViewModel.setProductList(productList)
+        findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToProductListFragment())
     }
 
     private fun setUpView() {

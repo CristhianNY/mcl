@@ -83,6 +83,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
     implementation "androidx.activity:activity-ktx:$androidx_activity_version"
     implementation "androidx.fragment:fragment-ktx:$androidx_fragment_version"
+    debugImplementation "com.readystatesoftware.chuck:library:$chunkLibrary"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$core_ktx_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$android_core_ktx_version"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
@@ -101,4 +102,6 @@ dependencies {
     testImplementation "androidx.test.ext:truth:$test_truth"
     testImplementation "com.google.truth:truth:$google_truth_truth"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+
 }
