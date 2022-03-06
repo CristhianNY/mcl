@@ -2,6 +2,7 @@ package com.mercadolibre.cristhianbonilla.mercadolibre.di.module
 
 import android.content.Context
 import com.mercadolibre.cristhianbonilla.data.BuildConfig.BASE_URL
+import com.mercadolibre.cristhianbonilla.support.config.NetworkInterceptor
 import com.readystatesoftware.chuck.ChuckInterceptor
 import dagger.Module
 import dagger.Provides
@@ -33,7 +34,7 @@ class NetworkModule {
         httpClient.connectTimeout(90, TimeUnit.SECONDS)
             .readTimeout(90, TimeUnit.SECONDS)
             .writeTimeout(90, TimeUnit.SECONDS)
-
+            .addInterceptor(NetworkInterceptor.httpLogging())
 
         httpClient.addInterceptor { chain ->
             val original = chain.request()

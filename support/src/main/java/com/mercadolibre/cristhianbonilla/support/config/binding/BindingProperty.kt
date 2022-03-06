@@ -32,15 +32,3 @@ fun <T : ViewDataBinding> fragmentBinding(@LayoutRes resId: Int): ReadOnlyProper
         override fun createBinding(thisRef: Fragment): T =
             DataBindingUtil.inflate(LayoutInflater.from(thisRef.context), resId, null, false)
     }
-
-fun <T : ViewDataBinding> bottomSheetDialogFragmentBinding(@LayoutRes resId: Int): ReadOnlyProperty<BottomSheetDialogFragment, T> =
-    object : BindingProperty<BottomSheetDialogFragment, T>() {
-        override fun createBinding(thisRef: BottomSheetDialogFragment): T =
-            DataBindingUtil.inflate(LayoutInflater.from(thisRef.context), resId, null, false)
-    }
-
-fun <T : ViewDataBinding> dialogFragmentBinding(@LayoutRes resId: Int): ReadOnlyProperty<DialogFragment, T> =
-    object : BindingProperty<DialogFragment, T>() {
-        override fun createBinding(thisRef: DialogFragment): T =
-            DataBindingUtil.inflate(LayoutInflater.from(thisRef.context), resId, null, false)
-    }

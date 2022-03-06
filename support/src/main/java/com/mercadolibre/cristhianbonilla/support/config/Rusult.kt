@@ -6,7 +6,7 @@ data class Result<T>(var status: Status, var data: T? = null, val message: Strin
 
     sealed class Status {
         object SUCCESS : Status()
-        class ERROR(val throwable: Throwable?, val code: Int, val errorBody: String = "") : Status()
+        class ERROR(val code: Int, val errorBody: String = "") : Status()
     }
 
     companion object {
@@ -20,7 +20,7 @@ data class Result<T>(var status: Status, var data: T? = null, val message: Strin
 
         fun <T> error(exception: Exception, code: Int, errorBody: String = "", data: T? = null): Result<T> {
             return Result(
-                status = Status.ERROR(exception, code, errorBody),
+                status = Status.ERROR(code, errorBody),
                 data = data,
                 message = exception.message
             )
