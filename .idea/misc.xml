@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/User/AndroidStudioProjects/mercadolibre/app/src/main/res/layout/activity_main.xml" value="0.18385416666666668" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/mercadolibre/app/src/main/res/layout/search_fragment.xml" value="0.18385416666666668" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mercadolibre/app/src/main/res/drawable/ic_mercadolibre.xml" value="0.194" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mercadolibre/app/src/main/res/drawable/text_input_edit_text_selector.xml" value="0.193" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mercadolibre/app/src/main/res/layout/activity_main.xml" value="0.152" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mercadolibre/app/src/main/res/layout/search_fragment.xml" value="0.34499514091350825" />
       </map>
     </option>
   </component>
