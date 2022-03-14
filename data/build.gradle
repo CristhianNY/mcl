@@ -58,6 +58,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$core_ktx_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$android_core_ktx_version"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$core_ktx_version"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlin"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
 
     implementation "com.google.dagger:dagger:$dagger_version"
